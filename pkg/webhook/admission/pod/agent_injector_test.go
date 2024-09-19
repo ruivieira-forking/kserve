@@ -17,12 +17,13 @@ limitations under the License.
 package pod
 
 import (
-	"k8s.io/utils/ptr"
 	"strconv"
+
+	"k8s.io/utils/ptr"
+
 	"testing"
 
 	fakeclientset "k8s.io/client-go/kubernetes/fake"
-	"testing"
 
 	"github.com/kserve/kserve/pkg/apis/serving/v1beta1"
 	"github.com/kserve/kserve/pkg/credentials"
