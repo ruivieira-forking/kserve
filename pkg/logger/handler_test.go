@@ -121,7 +121,8 @@ func TestBadResponse(t *testing.T) {
 
 	StartDispatcher(1, logger)
 	httpProxy := httputil.NewSingleHostReverseProxy(targetUri)
-	oh := New(logSvcUrl, sourceUri, v1beta1.LogAll, "mymodel", "default", "default", "default", httpProxy)
+	oh := New(logSvcUrl, sourceUri, v1beta1.LogAll, "mymodel", "default", "default",
+		"default", httpProxy, nil, "", true)
 
 	oh.ServeHTTP(w, r)
 	g.Expect(w.Code).To(gomega.Equal(400))
