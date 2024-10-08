@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kserve-controller-manager
+  namespace: kserve
+spec:
+  template:
+    spec:
+      containers:
+        - name: manager
+          command:
+          image: quay.io/ruimvieira/manager-12782ae64d3f5f3dbe4595b05a2cb78d@sha256:f26953c0c11aff469702486776aff661c6e46a8952457897051a8baf5f34554f

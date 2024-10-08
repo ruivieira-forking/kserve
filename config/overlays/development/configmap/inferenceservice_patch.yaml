@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inferenceservice-config
+  namespace: kserve
+data:
+  logger: |-
+    {
+        "image" : "quay.io/ruimvieira/agent-59c2cdf0cc2970eed0581d28646561d9@sha256:40005c9f14acf5dba3ab13d9856329f0a97449e28afc6b079a3fdd13994c6e42",
+        "memoryRequest": "100Mi",
+        "memoryLimit": "100Mi",
+        "cpuRequest": "100m",
+        "cpuLimit": "100m",
+        "caBundle": "kserve-logger-ca-bundle",
+        "caCertFile": "service-ca.crt",
+        "tlsSkipVerify": false
+    }
+  batcher: |-
+    {
+        "image" : "quay.io/ruimvieira/agent-59c2cdf0cc2970eed0581d28646561d9@sha256:40005c9f14acf5dba3ab13d9856329f0a97449e28afc6b079a3fdd13994c6e42",
+        "memoryRequest": "100Mi",
+        "memoryLimit": "100Mi",
+        "cpuRequest": "100m",
+        "cpuLimit": "100m"
+    }
+  agent: |-
+    {
+        "image" : "quay.io/ruimvieira/agent-59c2cdf0cc2970eed0581d28646561d9@sha256:40005c9f14acf5dba3ab13d9856329f0a97449e28afc6b079a3fdd13994c6e42",
+        "memoryRequest": "100Mi",
+        "memoryLimit": "500Mi",
+        "cpuRequest": "100m",
+        "cpuLimit": "100m"
+    }
+  router: |-
+    {
+        "image" : "quay.io/ruimvieira/router-20acce65bc84b6e5b28ae59ce41635d3@sha256:e7e4d687266444879f7b5321839da2f65e62fc6f87da187aa71abcd4f9d6a87b",
+        "memoryRequest": "100Mi",
+        "memoryLimit": "500Mi",
+        "cpuRequest": "100m",
+        "cpuLimit": "100m"
+    }
+  metricsAggregator: |-
+    {
+        "enableMetricAggregation": "false",
+        "enablePrometheusScraping" : "false"
+    }
